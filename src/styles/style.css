@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 970px;
+  height: 250px;
+  overflow: hidden;
+  background: #ccc;
+  position: relative;
+}
+.clicklayer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  z-index: 1;
+  height: 500px;
+  -webkit-animation: slidedown 6s infinite alternate;
+          animation: slidedown 6s infinite alternate;
+}
+.slider .page {
+  height: 250px;
+  wight: 970px;
+  position: relative;
+}
+.title {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  margin: -20px 0 0;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 100;
+  color: #fff;
+}
+.logo {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: 9;
+  margin: -45px 0 0 -154px;
+}
+.minion-wrap {
+  position: absolute;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: -200px;
+  z-index: 9;
+  -webkit-animation: skate 12s 8s infinite linear;
+          animation: skate 12s 8s infinite linear;
+}
+.minion-wrap .minion {
+  -webkit-animation: jiggle 0.1s infinite alternate;
+          animation: jiggle 0.1s infinite alternate;
+  display: block;
+}
+@-webkit-keyframes slidedown {
+  0%,
+  25%,
+  80%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  30%,
+  75% {
+    -webkit-transform: translateY(-250px);
+            transform: translateY(-250px);
+  }
+}
+@keyframes slidedown {
+  0%,
+  25%,
+  80%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  30%,
+  75% {
+    -webkit-transform: translateY(-250px);
+            transform: translateY(-250px);
+  }
+}
+@-webkit-keyframes jiggle {
+  0% {
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+  }
+  100% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+  }
+}
+@keyframes jiggle {
+  0% {
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+  }
+  100% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+  }
+}
+@-webkit-keyframes skate {
+  0% {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+  }
+  100% {
+    -webkit-transform: translateX(4850px);
+            transform: translateX(4850px);
+  }
+}
+@keyframes skate {
+  0% {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+  }
+  100% {
+    -webkit-transform: translateX(4850px);
+            transform: translateX(4850px);
+  }
+}

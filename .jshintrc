@@ -1,0 +1,22 @@
+{
+    "curly": true,
+    "eqeqeq": true,
+    "strict": true,
+    "evil": true,
+    "indent": 4,
+    "undef": true,
+    "sub": true,
+    "white": true,
+    "browser": true,
+    "quotmark": "double",
+    "trailing": true,
+    "globals": {
+        "jQuery": true,
+        "console": true,
+        "alert": true,
+        "confirm": true,
+        "prompt": true,
+        "module": true,
+        "require": true
+    }
+}

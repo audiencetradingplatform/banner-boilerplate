@@ -1,0 +1,88 @@
+//----------------------------------------------------------------------------//
+// A Collection of Mixins & Helpers
+//----------------------------------------------------------------------------//
+
+.force-hardware-acceleration() {
+    transform:translate3d(0, 0, 0);
+    backface-visibility:hidden;
+    perspective:1000;
+}
+
+.placeholder(@color:@input-color-placeholder) {
+    &::-webkit-input-placeholder { color:@color; }
+}
+
+.resizable(@direction) {
+    resize:@direction; // Options: horizontal, vertical, both
+    overflow:auto; // Safari fix
+}
+
+// or a mixin to specify cut-off width
+.truncate(@width: 100%) {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width:@width;
+}
+
+// Center-align a block level element
+.center-block() {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+// Positioning shortcut
+.position(@position, @top:0, @right:0, @bottom:0, @left:0, @z-index:0) {
+    position:@position;
+    top:@top;
+    right:@right;
+    bottom:@bottom;
+    left:@left;
+    z-index:@z-index;
+}
+
+// Sizing shortcuts
+.size(@width, @height) {
+    width:@width;
+    height:@height;
+}
+.square(@size) {
+    .size(@size, @size);
+}
+
+// Gradients
+.grad-horizontal(@startColor:#555, @endColor:#333) {
+    background-color:@endColor;
+    background-image:linear-gradient(to right, @startColor, @endColor);
+    background-repeat:repeat-x;
+}
+.grad-vertical(@startColor:#555, @endColor:#333) {
+    background-color:@endColor;
+    background-image:linear-gradient(to bottom, @startColor, @endColor);
+    background-repeat:repeat-x;
+}
+.grad-directional(@startColor:#555, @endColor:#333, @deg:45deg) {
+    background-color:@endColor;
+    background-image:linear-gradient(@deg, @startColor, @endColor);
+    background-repeat:repeat-x;
+}
+.grad-horizontal-three-colors(@startColor:#00b3ee, @midColor:#7a43b6, @colorStop:50%, @endColor:#c3325f) {
+    background-color:mix(@midColor, @endColor, 80%);
+    background-image:linear-gradient(to right, @startColor, @midColor @colorStop, @endColor);
+    background-repeat:no-repeat;
+}
+.grad-vertical-three-colors(@startColor:#00b3ee, @midColor:#7a43b6, @colorStop:50%, @endColor:#c3325f) {
+    background-color:mix(@midColor, @endColor, 80%);
+    background-image:linear-gradient(@startColor, @midColor @colorStop, @endColor);
+    background-repeat:no-repeat;
+}
+.grad-radial(@innerColor:#555, @outerColor:#333) {
+    background-color:@outerColor;
+    background-image:radial-gradient(circle, @innerColor, @outerColor);
+    background-repeat:no-repeat;
+}
+.grad-striped(@color:#555, @angle:45deg) {
+    background-color:@color;
+    background-image:linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+}

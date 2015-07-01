@@ -1,0 +1,81 @@
+@import "helpers";
+
+// micro reset
+@w: 970px;
+@h: 250px;
+* {
+    margin:0;
+    padding:0;
+}
+
+// setup
+.container {
+	width:@w;
+	height:@h;
+    overflow:hidden;
+    background:#ccc;
+    position:relative;
+}
+.clicklayer {
+    .position(absolute, 0, 0, 0, 0, 999);
+}
+
+// go styles!
+.slider {
+    .position(absolute, 0, 0, auto, 0, 1);
+    height:(@h * 2);
+    .page {
+        height:@h;
+        wight:@w;
+        position:relative;
+    }
+    animation:slidedown 6s infinite alternate;
+}
+.title {
+    .position(absolute, 50%, 0, 0, 0, 1);
+    margin:-20px 0 0;
+    text-align:center;
+    font-family:sans-serif;
+    font-weight:100;
+    color:#fff;
+}
+.logo {
+    .position(absolute, 50%, 0, 0, 50%, 9);
+    margin:-45px 0 0 -154px;
+}
+.minion-wrap {
+    .position(absolute, auto, auto, 0, -200px, 9);
+    animation:skate 12s 8s infinite linear;
+    .minion {
+        animation:jiggle 0.1s infinite alternate;
+        display:block;
+    }
+}
+
+
+@keyframes slidedown {
+    0%, 25%, 80%, 100% {
+        transform:translateY(0);
+    }
+    30%, 75% {
+        transform:translateY(-@h);
+    }
+}
+
+@keyframes jiggle {
+    0% {
+        transform:rotate(-1deg);
+    }
+    100% {
+        transform:rotate(1deg);
+    }
+}
+
+@keyframes skate {
+    0% {
+        transform:translateX(-200px);
+    }
+    100% {
+        transform:translateX((@w * 5));
+    }
+}
